@@ -80,6 +80,7 @@ Here’s an example of the `cv_data.json` file structure:
     }
   ]
 }
+```
 
 - `firstName` and `lastName`: Your personal name.
 - `email`: Your email address.
@@ -91,4 +92,3 @@ Here’s an example of the `cv_data.json` file structure:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
