@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{firstName}} {{lastName}} CV</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('path/to/font.woff2') format('woff2');
+        }
+
+        body {
+            font-family: 'CustomFont', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .personal-info {
+            margin-bottom: 20px;
+        }
+
+        .experience, .education {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{firstName}} {{lastName}} CV</h1>
+        <div class="personal-info">
+            <p>Email: {{email}}</p>
+            <p>Phone: {{phone}}</p>
+            {{#if website}}
+                <p>Website: {{website}}</p>
+            {{/if}}
+        </div>
+
+        <div class="experience">
+            <h2>Experience</h2>
+            {{#each experience}}
+                <div class="job">
+                    <h3>{{jobTitle}} at {{company}}</h3>
+                    <p><strong>From:</strong> {{startDate}} <strong>To:</strong> {{endDate}}</p>
+                    <p>{{description}}</p>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="education">
+            <h2>Education</h2>
+            {{#each education}}
+                <div class="degree">
+                    <h3>{{degree}} from {{school}}</h3>
+                    <p><strong>From:</strong> {{startDate}} <strong>To:</strong> {{endDate}}</p>
+                    <p>{{description}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>

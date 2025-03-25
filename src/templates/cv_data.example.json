@@ -1,0 +1,35 @@
+{
+    "firstName": "John", 
+    "lastName": "Doe",
+    "email": "example@example.com", 
+    "phone": "+11234567890", 
+    "website": "https://www.johndoe.com",
+    
+    "experience": [
+      {
+        "jobTitle": "Software Engineer",
+        "company": "Tech Corp",
+        "startDate": "2021-01-01", 
+        "endDate": "2023-01-01", 
+        "description": "Worked on building scalable applications using Node.js and React."
+      },
+      {
+        "jobTitle": "Frontend Developer",
+        "company": "Web Solutions",
+        "startDate": "2019-06-01", 
+        "endDate": "2020-12-31", 
+        "description": "Developed responsive websites using HTML, CSS, and JavaScript."
+      }
+    ],
+  
+    "education": [
+      {
+        "degree": "Bachelor of Science in Computer Science",
+        "school": "Example University",
+        "startDate": "2015-09-01", 
+        "endDate": "2019-06-30", 
+        "description": "Studied algorithms, software engineering, and web development."
+      }
+    ]
+  }
+  

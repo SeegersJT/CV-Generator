@@ -1,0 +1,17 @@
+# Ignore the downloads folder
+/downloads
+
+# Ignore the cv_data.json file
+/src/templates/cv_data.json
+
+# Ignore all images inside the /src/media/images/ folder
+/src/media/images/*
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Environment files
+.env
