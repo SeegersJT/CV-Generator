@@ -1,27 +1,24 @@
-import fs from 'fs';
-import { generateHtml } from './components/generateHtml.js';
+import { embedAssets } from './components/embedAssets.js';
+import { checkAndCreateFile } from './components/fileUtils.js';
 import { generatePdf } from './components/generatePdf.js';
+import { parseCVData } from './components/parseCVData.js';
+import { parseHtml } from './components/parseHtml.js';
 
-const jsonFilePath = './src/templates/cv_data.json';
-const templateFilePath = './src/templates/cv_template.html';
-const downloadPath = './src/downloads/';
-
-fs.readFile(jsonFilePath, 'utf-8', async (err, data) => {
-  if (err) {
-    console.error('Error reading JSON file:', err);
-    return;
-  }
-
-  const cvData = JSON.parse(data);
-  const { firstName, lastName } = cvData;
-  const currentDate = new Date().toISOString().split('T')[0];
-  const filename = `${firstName} ${lastName} CV ${currentDate}`;
-
+async function generateCV(cvDataFile, templateFile) {
   try {
-    const html = await generateHtml(jsonFilePath, templateFilePath);
+    const cvData = await parseCVData(cvDataFile);
+    let htmlContent = await parseHtml(templateFile, cvData);
+    htmlContent = await embedAssets(htmlContent);
 
-    await generatePdf(html, downloadPath, filename);
+    const { firstName, lastName } = cvData;
+    const fileName = `${firstName} ${lastName} CV ${new Date().toISOString().split('T')[0]}.pdf`;
+    const filePath = await checkAndCreateFile(fileName);
+
+    await generatePdf(htmlContent, filePath);
+    console.log('PDF Generated at:', filePath);
   } catch (error) {
-    console.error('Error generating PDF:', error);
+    console.error('Error generating CV:', error);
   }
-});
+}
+
+generateCV('./src/templates/cv_data.json', './src/templates/cv_template.html');
