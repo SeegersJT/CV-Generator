@@ -1,33 +1,99 @@
 {
-    "firstName": "Hanno", 
-    "lastName": "Seegers",
-    "email": "seegersjt@outlook.com", 
-    "phone": "+27 64 654 3596", 
-    "website": null,
-    "experience": [
-      {
-        "jobTitle": "Software Engineer",
-        "company": "Tech Corp",
-        "startDate": "2021-01-01", 
-        "endDate": "2023-01-01", 
-        "description": "Worked on building scalable applications using Node.js and React."
-      },
-      {
-        "jobTitle": "Frontend Developer",
-        "company": "Web Solutions",
-        "startDate": "2019-06-01", 
-        "endDate": "2020-12-31", 
-        "description": "Developed responsive websites using HTML, CSS, and JavaScript."
-      }
-    ],
-    "education": [
-      {
-        "degree": "Bachelor of Science in Computer Science",
-        "school": "Example University",
-        "startDate": "2015-09-01", 
-        "endDate": "2019-06-30", 
-        "description": "Studied algorithms, software engineering, and web development."
-      }
-    ]
-  }
-  
+  "firstName": "John", 
+  "lastName": "Doe",
+  "currentRoleName": "Full-Stack Developer",
+  "emailAddress": "example@example.com", 
+  "phoneNumber": "+11234567890",
+  "location": "Location",
+  "summary": "Keep it short, Keep it sweat. (50 words max, and that is already too much)",
+  "education": [
+    {
+      "institutionName": "Example University",
+      "qualification": "Bachelor of Science in Computer Science",
+      "location": "Location",
+      "start": "2015-09-01",
+      "end": "2019-06-30"
+    },
+    {
+      "institutionName": "Example University",
+      "qualification": "Bachelor of Science in Computer Science",
+      "location": "Location",
+      "start": "2015-09-01",
+      "end": "2019-06-30"
+    }
+  ],
+  "skills": [
+    {
+      "name": "HTML",
+      "level": 10
+    },
+    {
+      "name": "CSS",
+      "level": 8
+    },
+    {
+      "name": "JavaScript",
+      "level": 6
+    },
+    {
+      "name": "C#",
+      "level": 4
+    },
+    {
+      "name": "SQL",
+      "level": 2
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": 10
+    },
+    {
+      "name": "German",
+      "level": 4
+    }
+  ],
+  "experience": [
+    {
+      "roleName": "Senior Developer",
+      "companyName": "Campany Name",
+      "start": "2022-01-01",
+      "end": null,
+      "descriptions": [
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)"
+      ],
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "C#",
+        "SQL"
+      ]
+    },
+    {
+      "roleName": "Senior Developer",
+      "companyName": "Campany Name",
+      "start": "2022-01-01",
+      "end": null,
+      "descriptions": [
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)",
+        "Short List of responsibilities (15 Words max)"
+      ],
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "C#",
+        "SQL"
+      ]
+    }
+  ]
+}

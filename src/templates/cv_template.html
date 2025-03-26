@@ -3,71 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{firstName}} {{lastName}} CV</title>
     <style>
-        @font-face {
-            font-family: 'CustomFont';
-            src: url('path/to/font.woff2') format('woff2');
+		@font-face {
+			font-family: "Roboto";
+			src: url("../assets/fonts/Roboto-VariableFont_wdth\,wght.ttf") format("truetype");
+			font-weight: 100 900;  /* Supports weights from Thin (100) to Black (900) */
+			font-stretch: 75% 125%; /* Adjusts width if needed */
+			font-style: normal;
+		}
+
+		body {
+			font-family: "Roboto", sans-serif;
+			font-weight: 400; /* Normal */
+		}
+
+        html body {
+            width: 100%;
+            height: 100%;
         }
 
-        body {
-            font-family: 'CustomFont', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .container {
-            width: 80%;
+        .main-container {
             margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            border: 1px solid red;
         }
 
-        h1 {
-            text-align: center;
+        .header-container {
+			border: 1px solid blue;
+			width: 350px;
+			margin: 0 30px;
         }
 
-        .personal-info {
-            margin-bottom: 20px;
+		.profile-container {
+			height: 150px;
+			border: 1px solid red;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.profile {
+			width: 120px;
+			height: 120px;
+			border: 1px solid red;
+			border-radius: 50%;
+		}
+
+		.contact-details-title {
+			padding: 10px 0;
+			font-size: large;
+			font-weight: 700;
+		}
+
+		.email-address-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+		
+		.email-address-icon {
+			padding: 5px;
+			margin: 0 10px 0 0;
+			border: 1px solid red;
+			border-radius: 50%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			background-color: white;
+		}
+
+		.email-address {
+			font-weight: 300;
+		}
+
+		/* // ============= // */
+
+        .content-container {
+            border: 1px solid green;
+            width: 100%;
+            height: 691px;
         }
 
-        .experience, .education {
-            margin-top: 20px;
+        .title {
+            font-size: 70px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>{{firstName}} {{lastName}} CV</h1>
-        <div class="personal-info">
-            <p>Email: {{email}}</p>
-            <p>Phone: {{phone}}</p>
-            {{#if website}}
-                <p>Website: {{website}}</p>
-            {{/if}}
+    <div class="main-container">
+        <div class="header-container">
+			<!-- PROFILE -->
+            <div class="profile-container">
+				<div class="profile"></div>
+			</div>
+
+			<!-- CONTACT DETAILS -->
+			<div class="contact-details-container">
+				<div class="contact-details-title">Contact Details</div>
+
+				<div class="email-address-container">
+					<div class="email-address-icon">
+						<img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTQ4IDY0QzIxLjUgNjQgMCA4NS41IDAgMTEyYzAgMTUuMSA3LjEgMjkuMyAxOS4yIDM4LjRMMjM2LjggMzEzLjZjMTEuNCA4LjUgMjcgOC41IDM4LjQgMEw0OTIuOCAxNTAuNGMxMi4xLTkuMSAxOS4yLTIzLjMgMTkuMi0zOC40YzAtMjYuNS0yMS41LTQ4LTQ4LTQ4TDQ4IDY0ek0wIDE3NkwwIDM4NGMwIDM1LjMgMjguNyA2NCA2NCA2NGwzODQgMGMzNS4zIDAgNjQtMjguNyA2NC02NGwwLTIwOEwyOTQuNCAzMzkuMmMtMjIuOCAxNy4xLTU0IDE3LjEtNzYuOCAwTDAgMTc2eiIvPjwvc3ZnPg==' alt="Email Icon" width="20" height="20">
+					</div>
+					<div class="email-address">{{emailAddress}}</div>
+				</div>
+
+				<div class="phone-number-container">
+					<div class="phone-number-icon"></div>
+					<div class="phone-number">{{phoneNumber}}</div>
+				</div>
+
+				<!-- OPTIONAL -->
+				{{#if location}}
+					<div class="location-container">
+						<div class="location-icon"></div>
+						<div class="location">{{location}}</div>
+					</div>
+				{{/if}}
+			</div>
+
+			<!-- EDUCATION - OPTIONAL -->
+			{{#if education}}
+				<div class="education-container">
+					<div class="education-title">Education</div>
+
+					<!-- FOR LOOP -->
+					{{#each education}}
+						<div class="education">
+							<div class="education-name">{{institutionName}}</div>
+							<div class="education-level">{{qualification}}</div>
+
+							<!-- OPTIONAL -->
+							{{#if location}}
+								<div class="education-location">{{location}}</div>
+							{{/if}}
+
+							<div class="education-start">{{start}}</div>
+							<div class="education-end">{{end}}</div>
+						</div>
+					{{/each}}
+				</div>
+			{{/if}}
+
+			<!-- SKILLS -->
+			<div class="skills-container">
+				<div class="skills-title">Skills</div>
+
+				<!-- FOR LOOP -->
+				{{#each skills}}
+					<div class="skill">
+						<div class="skill-name">{{name}}</div>
+						<div class="skill-level">{{level}}</div>
+					</div>
+				{{/each}}
+			</div>
+
+			<!-- LANGUAGES -->
+			<div class="languages-container">
+				<div class="languages-title">Languages</div>
+
+				<!-- FOR LOOP -->
+				{{#each languages}}
+					<div class="language">
+						<div class="language-name">{{name}}</div>
+						<div class="language-level">{{level}}</div>
+					</div>
+				{{/each}}
+			</div>
         </div>
 
-        <div class="experience">
-            <h2>Experience</h2>
-            {{#each experience}}
-                <div class="job">
-                    <h3>{{jobTitle}} at {{company}}</h3>
-                    <p><strong>From:</strong> {{startDate}} <strong>To:</strong> {{endDate}}</p>
-                    <p>{{description}}</p>
-                </div>
-            {{/each}}
-        </div>
+        <div class="content-container">
+			<!-- TITLE -->
+            <div class="title-section">
+				<div class="name">
+					<div class="first-name">{{firstName}}</div>
+					<div class="last-name">{{lastName}}</div>
+				</div>
+				<div class="current-role-name">{{currentRoleName}}</div>
+			</div>
 
-        <div class="education">
-            <h2>Education</h2>
-            {{#each education}}
-                <div class="degree">
-                    <h3>{{degree}} from {{school}}</h3>
-                    <p><strong>From:</strong> {{startDate}} <strong>To:</strong> {{endDate}}</p>
-                    <p>{{description}}</p>
-                </div>
-            {{/each}}
+			<!-- SUMMARY -->
+			<div class="summary-container">
+				<div class="summary-title">Summary</div>
+				<div class="summary">{{summary}}</div>
+			</div>
+
+			<!-- WORK EXPERIENCE -->
+			<div class="work-experience-container">
+				<div class="work-experience-title">Work Experience</div>
+
+				<!-- FOR LOOP -->
+				{{#each experience}}
+				<div class="work-experience">
+					<div class="work-experience-role-name">{{roleName}}</div>
+					<div class="work-experience-company-name">{{companyName}}</div>
+					<div class="work-experience-start">{{start}}</div>
+					
+					<!-- DEFAULT TO PRESENT IF NULL -->
+					<div class="work-experience-end">
+						{{#if end}}{{end}}{{else}}Present{{/if}}
+					</div>
+					
+					<div class="work-experience-descriptions-container">
+						{{#each descriptions}}
+							<div class="work-experience-description">{{this}}</div>
+						{{/each}}
+					</div>
+
+					<div class="work-experience-skills-container">
+						{{#each skills}}
+							<div class="work-experience-skill">{{this}}</div>
+						{{/each}}
+					</div>
+				</div>
+				{{/each}}
+			</div>
+
+			<div class="references-container">
+				<div class="references-title">References</div>
+				<div class="reference">References available upon request</div>
+			</div>
         </div>
     </div>
 </body>
