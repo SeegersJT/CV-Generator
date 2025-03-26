@@ -1,99 +1,51 @@
 {
-  "firstName": "John", 
+  "firstName": "John",
   "lastName": "Doe",
   "currentRoleName": "Full-Stack Developer",
-  "emailAddress": "example@example.com", 
+  "emailAddress": "example@example.com",
   "phoneNumber": "+11234567890",
   "location": "Location",
-  "summary": "Keep it short, Keep it sweat. (50 words max, and that is already too much)",
+  "summary": "A concise summary about yourself (50 words max).",
   "education": [
     {
       "institutionName": "Example University",
       "qualification": "Bachelor of Science in Computer Science",
-      "location": "Location",
-      "start": "2015-09-01",
-      "end": "2019-06-30"
-    },
-    {
-      "institutionName": "Example University",
-      "qualification": "Bachelor of Science in Computer Science",
-      "location": "Location",
-      "start": "2015-09-01",
-      "end": "2019-06-30"
+      "location": "City, Country",
+      "start": "Jan 2015",
+      "end": "Dec 2019"
     }
   ],
   "skills": [
     {
       "name": "HTML",
-      "level": 10
+      "level": 100
     },
     {
       "name": "CSS",
-      "level": 8
-    },
-    {
-      "name": "JavaScript",
-      "level": 6
-    },
-    {
-      "name": "C#",
-      "level": 4
-    },
-    {
-      "name": "SQL",
-      "level": 2
+      "level": 80
     }
   ],
   "languages": [
     {
       "name": "English",
-      "level": 10
+      "level": 100
     },
     {
       "name": "German",
-      "level": 4
+      "level": 40
     }
   ],
   "experience": [
     {
       "roleName": "Senior Developer",
-      "companyName": "Campany Name",
+      "companyName": "Company Name",
       "start": "2022-01-01",
       "end": null,
       "descriptions": [
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)"
+        "Short description of responsibilities (15 words max)",
+        "Short description of responsibilities (15 words max)"
       ],
-      "skills": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "C#",
-        "SQL"
-      ]
-    },
-    {
-      "roleName": "Senior Developer",
-      "companyName": "Campany Name",
-      "start": "2022-01-01",
-      "end": null,
-      "descriptions": [
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)",
-        "Short List of responsibilities (15 Words max)"
-      ],
-      "skills": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "C#",
-        "SQL"
-      ]
+      "skills": ["HTML", "CSS", "JavaScript"]
     }
   ]
 }

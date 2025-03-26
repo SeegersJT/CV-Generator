@@ -10,6 +10,6 @@ export async function generatePdf(htmlContent, outputPath) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setContent(htmlContent);
-  await page.pdf({ path: outputPath, format: 'A4' });
+  await page.pdf({ path: outputPath, format: 'A4', printBackground: true });
   await browser.close();
 }

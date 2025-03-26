@@ -7,20 +7,24 @@
 		@font-face {
 			font-family: "Roboto";
 			src: url("../assets/fonts/Roboto-VariableFont_wdth,wght.ttf") format("truetype");
-			font-weight: 100 900;  /* Supports weights from Thin (100) to Black (900) */
-			font-stretch: 75% 125%; /* Adjusts width if needed */
+			font-weight: 100 900;
+			font-stretch: 75% 125%;
 			font-style: normal;
 		}
 
 		body {
 			font-family: "Roboto", sans-serif;
-			font-weight: 400; /* Normal */
+			font-weight: 400;
+			color: var(--text);
 		}
 
-        html body {
-            width: 100%;
-            height: 100%;
-        }
+        html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			background-color: var(--background);
+		}
 
         .main-container {
             margin: 0 auto;
@@ -30,9 +34,10 @@
         }
 
         .header-container {
+			background-color: var(--accent);
 			border: 1px solid blue;
 			width: 350px;
-			margin: 0 30px;
+			padding: 0 30px;
         }
 
 		.profile-container {
@@ -51,19 +56,20 @@
 			border-radius: 50%;
 		}
 
-		.contact-details-title {
+		.header-title {
 			padding: 10px 0;
 			font-size: large;
 			font-weight: 700;
 		}
 
-		.email-address-container {
+		.information-container {
 			display: flex;
 			flex-direction: row;
 			align-items: center;
+			margin: 5px 0;
 		}
 		
-		.email-address-icon {
+		.information-icon {
 			padding: 5px;
 			margin: 0 10px 0 0;
 			border: 1px solid red;
@@ -72,31 +78,203 @@
 			flex-direction: row;
 			justify-content: center;
 			align-items: center;
-			background-color: white;
+			background-color: var(--background);
 		}
 
-		.email-address {
+		.information {
 			font-weight: 300;
 		}
 
-		/* // ============= // */
+		.education-title {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.education-dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: var(--primary);
+		}
+
+		.education-name {
+			font-size: large;
+			font-weight: 500;
+			padding-left: 10px;
+		}
+
+		.education-description {
+			display: flex;
+    		flex-direction: row;
+		}
+
+		.education-line {
+			width: 5px;
+			background-color: var(--primary);
+			border-radius: 10px;
+			margin-left: 3px;
+		}
+
+		.education-information {
+			padding-left: 13px;
+		}
+
+		.education-data {
+			padding: 5px 0;
+		}
+
+		.education-duration {
+			font-size: small;
+    		font-weight: 300;
+		}
+
+		.skill {
+			margin: 5px 0;
+		}
+
+		.skill-name {
+			padding-bottom: 5px;
+		}
+
+		.skill-level {
+			width: 100%;
+			border: 2px solid var(--primary);
+			height: 8px;
+			border-radius: 8px;
+		}
+
+		.skill-level-progress {
+			background-color: var(--primary);
+			height: 100%;
+		}
 
         .content-container {
             border: 1px solid green;
-            width: 100%;
-            height: 691px;
+			width: 840px;
         }
 
-        .title {
-            font-size: 70px;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+		.title-section {
+			background-color: var(--secondary);
+			padding: 30px;
+		}
 
+		.title-name {
+			font-size: xxx-large;
+		}
 
+		.title-current-role-name {
+			font-size: x-large;
+		}
+
+		.summary-container {
+			padding: 0 30px;
+		}
+
+		.contact-title {
+			margin: 10px 0;
+			font-size: large;
+			font-weight: 700;
+			border-bottom: 1px solid var(--primary);
+		}
+
+		.work-experience-container {
+			padding: 0 30px;
+		}
+
+		.work-experience-skills-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		.work-experience-skill {
+			border: 2px solid var(--primary);
+			background-color: var(--background);
+			border-radius: 5px;
+			padding: 5px;
+			margin: 5px;
+		}
+
+		.work-experience-company-name {
+			font-size: large;
+    		font-weight: 900;
+		}
+
+		.work-experience-role-name {
+			font-size: large;
+    		font-weight: 900;
+		}
+
+		.work-experience-company-name {
+			font-size: small;
+    		font-weight: 700;
+		}
+
+		.work-experience-duration {
+			font-size: small;
+    		font-weight: 300;
+		}
+
+		.work-experience-description-container {
+			display: flex;
+    		flex-direction: row;
+			margin-left: 30px;
+		}
+
+		.work-experience-description-dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: var(--primary);
+			margin-top: 5px;
+		}
+
+		.work-experience-description {
+			padding-left: 20px;
+			width: 760px;
+		}
+
+		.references-container {
+			padding: 0 30px;
+		}
+
+		.reference {
+			font-weight: 300;
+			font-size: small;
+		}
     </style>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const themeColors = {
+				teal: {
+					text: "#1F1F20",
+					background: "#F8F8F8",
+					primary: "#1386C4",
+					secondary: "#292B2C",
+					accent: "#ECF7FD"
+				},
+				rose: {
+					text: "#1F1F20",
+					background: "#F8F8F8",
+					primary: "#E44D4D",
+					secondary: "#292B2C",
+					accent: "#E9DAC1"
+				}
+			};
+
+			const theme = "teal";
+			const colors = themeColors[theme];
+
+			if (colors) {
+				Object.entries(colors).forEach(([key, value]) => {
+					document.documentElement.style.setProperty(`--${key}`, value);
+				});
+			}
+		});
+	</script>
 </head>
 <body>
     <div class="main-container">
@@ -108,25 +286,29 @@
 
 			<!-- CONTACT DETAILS -->
 			<div class="contact-details-container">
-				<div class="contact-details-title">Contact Details</div>
+				<div class="header-title">Contact Details</div>
 
-				<div class="email-address-container">
-					<div class="email-address-icon">
+				<div class="information-container">
+					<div class="information-icon">
 						<img src="../assets/icons/email-icon.svg" alt="Email Icon" width="20" height="20">
 					</div>
-					<div class="email-address">{{emailAddress}}</div>
+					<div class="information">{{emailAddress}}</div>
 				</div>
 
-				<div class="phone-number-container">
-					<div class="phone-number-icon"></div>
-					<div class="phone-number">{{phoneNumber}}</div>
+				<div class="information-container">
+					<div class="information-icon">
+						<img src="../assets/icons/phone-icon.svg" alt="Phone Icon" width="20" height="20">
+					</div>
+					<div class="information">{{phoneNumber}}</div>
 				</div>
 
 				<!-- OPTIONAL -->
 				{{#if location}}
-					<div class="location-container">
-						<div class="location-icon"></div>
-						<div class="location">{{location}}</div>
+					<div class="information-container">
+						<div class="information-icon">
+							<img src="../assets/icons/location-icon.svg" alt="Location Icon" width="20" height="20">
+						</div>
+						<div class="information">{{location}}</div>
 					</div>
 				{{/if}}
 			</div>
@@ -134,21 +316,28 @@
 			<!-- EDUCATION - OPTIONAL -->
 			{{#if education}}
 				<div class="education-container">
-					<div class="education-title">Education</div>
+					<div class="header-title">Education</div>
 
 					<!-- FOR LOOP -->
 					{{#each education}}
 						<div class="education">
-							<div class="education-name">{{institutionName}}</div>
-							<div class="education-level">{{qualification}}</div>
+							<div class="education-title">
+								<div class="education-dot"></div>
+								<div class="education-name">{{institutionName}}</div>
+							</div>
+							<div class="education-description">
+								<div class="education-line"></div>
+								<div class="education-information">
+									<div class="education-data">{{qualification}}</div>
 
-							<!-- OPTIONAL -->
-							{{#if location}}
-								<div class="education-location">{{location}}</div>
-							{{/if}}
+									<!-- OPTIONAL -->
+									{{#if location}}
+										<div class="education-data">{{location}}</div>
+									{{/if}}
 
-							<div class="education-start">{{start}}</div>
-							<div class="education-end">{{end}}</div>
+									<div class="education-data education-duration">{{start}} - {{end}}</div>
+								</div>
+							</div>
 						</div>
 					{{/each}}
 				</div>
@@ -156,26 +345,30 @@
 
 			<!-- SKILLS -->
 			<div class="skills-container">
-				<div class="skills-title">Skills</div>
+				<div class="header-title">Skills</div>
 
 				<!-- FOR LOOP -->
 				{{#each skills}}
 					<div class="skill">
 						<div class="skill-name">{{name}}</div>
-						<div class="skill-level">{{level}}</div>
+						<div class="skill-level">
+							<div class="skill-level-progress" style="width: {{level}}%"></div>
+						</div>
 					</div>
 				{{/each}}
 			</div>
 
 			<!-- LANGUAGES -->
 			<div class="languages-container">
-				<div class="languages-title">Languages</div>
+				<div class="header-title">Languages</div>
 
 				<!-- FOR LOOP -->
 				{{#each languages}}
-					<div class="language">
-						<div class="language-name">{{name}}</div>
-						<div class="language-level">{{level}}</div>
+					<div class="skill">
+						<div class="skill-name">{{name}}</div>
+						<div class="skill-level">
+							<div class="skill-level-progress" style="width: {{level}}%"></div>
+						</div>
 					</div>
 				{{/each}}
 			</div>
@@ -184,38 +377,33 @@
         <div class="content-container">
 			<!-- TITLE -->
             <div class="title-section">
-				<div class="name">
-					<div class="first-name">{{firstName}}</div>
-					<div class="last-name">{{lastName}}</div>
-				</div>
-				<div class="current-role-name">{{currentRoleName}}</div>
+				<div class="title-name">{{firstName}} {{lastName}}</div>
+				<div class="title-current-role-name">{{currentRoleName}}</div>
 			</div>
 
 			<!-- SUMMARY -->
 			<div class="summary-container">
-				<div class="summary-title">Summary</div>
+				<div class="contact-title">Summary</div>
 				<div class="summary">{{summary}}</div>
 			</div>
 
 			<!-- WORK EXPERIENCE -->
 			<div class="work-experience-container">
-				<div class="work-experience-title">Work Experience</div>
+				<div class="contact-title">Work Experience</div>
 
 				<!-- FOR LOOP -->
 				{{#each experience}}
 				<div class="work-experience">
 					<div class="work-experience-role-name">{{roleName}}</div>
 					<div class="work-experience-company-name">{{companyName}}</div>
-					<div class="work-experience-start">{{start}}</div>
-					
-					<!-- DEFAULT TO PRESENT IF NULL -->
-					<div class="work-experience-end">
-						{{#if end}}{{end}}{{else}}Present{{/if}}
-					</div>
-					
+					<div class="work-experience-duration">{{start}} - {{#if end}}{{end}}{{else}}Present{{/if}}</div>
+
 					<div class="work-experience-descriptions-container">
 						{{#each descriptions}}
+						<div class="work-experience-description-container">
+							<div class="work-experience-description-dot"></div>
 							<div class="work-experience-description">{{this}}</div>
+						</div>
 						{{/each}}
 					</div>
 
@@ -229,7 +417,7 @@
 			</div>
 
 			<div class="references-container">
-				<div class="references-title">References</div>
+				<div class="contact-title">References</div>
 				<div class="reference">References available upon request</div>
 			</div>
         </div>

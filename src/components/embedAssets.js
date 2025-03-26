@@ -10,10 +10,7 @@ import path from 'path';
 export async function embedAssets(htmlContent) {
   const assetRegex = /url\(["']?(.*?)["']?\)/g;
 
-  // Replace fonts and other assets in URL format
   htmlContent = await replaceAssetUrls(htmlContent, assetRegex);
-
-  // Replace image tags (like <img src="...">) with base64 encoded content
   htmlContent = await replaceImageTags(htmlContent);
 
   return htmlContent;
@@ -21,6 +18,7 @@ export async function embedAssets(htmlContent) {
 
 /**
  * Replaces font and other asset URLs in the CSS with base64 encoded data URIs.
+ * Dynamically determines the MIME type based on the file extension.
  * @param {string} htmlContent - The HTML content to modify.
  * @param {RegExp} regex - The regex to match asset URLs.
  * @returns {Promise<string>} - The modified HTML content with base64 encoded assets.
@@ -29,8 +27,34 @@ async function replaceAssetUrls(htmlContent, regex) {
   return htmlContent.replace(regex, (match, url) => {
     const assetPath = path.resolve('./src/assets', url);
     const fileBuffer = fs.readFileSync(assetPath);
+
+    // Get the file extension
+    const extname = path.extname(assetPath).toLowerCase();
+    let mimeType = '';
+
+    // Dynamically determine the MIME type based on file extension
+    switch (extname) {
+      case '.woff2':
+        mimeType = 'application/font-woff2';
+        break;
+      case '.woff':
+        mimeType = 'application/font-woff';
+        break;
+      case '.ttf':
+        mimeType = 'application/font-ttf';
+        break;
+      case '.otf':
+        mimeType = 'application/font-opentype';
+        break;
+      default:
+        mimeType = 'application/octet-stream'; // Fallback to binary
+    }
+
+    // Convert the file buffer to base64
     const base64Encoded = fileBuffer.toString('base64');
-    return `url('data:application/font-woff2;base64,${base64Encoded}')`; // Assuming WOFF2 font type by default
+
+    // Return the modified URL with the correct data URI format
+    return `url('data:${mimeType};base64,${base64Encoded}')`;
   });
 }
 
