@@ -6,8 +6,8 @@ export default defineConfig([
   {
     files: ['**/*.{js,mjs,cjs}'],
     rules: {
-      quotes: ['error', 'single'], // Enforce single quotes
-      indent: ['error', 2], // Enforce 2-space indentation
+      quotes: ['error', 'single'],
+      indent: ['error', 2],
     },
   },
   {

@@ -1,5 +1,5 @@
 # Ignore the downloads folder
-downloads
+downloads/
 
 # Ignore the cv_data.json file
 src/templates/cv_data.json
@@ -12,6 +12,9 @@ src/assets/images/*
 
 # Node modules
 node_modules/
+
+# Package lock
+package-lock.json
 
 # Logs
 *.log
