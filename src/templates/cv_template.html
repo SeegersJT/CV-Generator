@@ -49,9 +49,18 @@
 		.profile-container {
 			width: 100px;
 			height: 100px;
-			background-color: #656565;
+			background-color: var(--primary);
 			border-radius: 50%;
 			margin: 20px auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+		}
+
+		img {
+			width: 100%;
+			object-fit: cover;
 		}
 
 		.sidebar-content-container {
@@ -312,7 +321,9 @@
 <body>
     <div class="main-container">
 		<div class="sidebar-container">
-			<div class="profile-container"></div>
+			<div class="profile-container">
+				<img src="../assets/images/profile-1.jpg" alt="Recommended resolution 250x250"/>
+			</div>
 
 			<div class="sidebar-content-container">
 				<div class="sidebar-title">Contact Details</div>

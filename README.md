@@ -111,7 +111,3 @@ npm run lint:fix # Fix linting issues
 ## Contributing
 
 Feel free to fork the repository and submit pull requests with improvements or new features.
-
-## License
-
-This project is licensed under the ISC License.
