@@ -1,138 +1,117 @@
 # CV Generator
 
-This project allows you to generate a professional CV in PDF format using a structured JSON file and an HTML template. The CV is styled and formatted dynamically based on the provided data.
+## Overview
+
+The CV Generator is a Node.js-based tool that dynamically generates a CV in PDF format. It leverages Handlebars for templating, Puppeteer for PDF generation, and includes built-in asset embedding for fonts, images, and icons. The project follows a modular ES Modules structure and is easily customizable.
 
 ## Features
 
-- Generate a professional-looking CV in PDF format.
-- Uses Handlebars.js for templating to dynamically populate CV content.
-- Supports embedding images, fonts, and icons as base64.
-- Automatically formats work experience, education, and skills sections.
-- Ensures consistent styling and layout with CSS.
+- Parses JSON-based CV data
+- Uses Handlebars for dynamic HTML template rendering
+- Embeds fonts, icons, and images as Base64 for seamless PDF conversion
+- Generates a PDF version of the CV using Puppeteer
+- Supports multiple themes with customizable color schemes
+- Provides CLI options for theme selection and output customization
+
+## Project Structure
+
+```
+cv-generator/
+├── src/                     # Source code directory
+│   ├── assets/              # Contains fonts and images used in the CV
+│   │   ├── fonts/           # Custom fonts for styling the CV
+│   │   ├── images/          # Profile pictures and other graphical assets
+│   ├── components/          # Helper modules for parsing and asset embedding
+│   │   ├── embedAssets.js   # Converts images and fonts to Base64 for embedding
+│   │   ├── fileUtils.js     # Utility functions for file handling
+│   │   ├── generatePdf.js   # Handles PDF generation using Puppeteer
+│   │   ├── parseCvData.js   # Parses JSON CV data into a structured format
+│   │   ├── parseHtml.js     # Processes Handlebars templates into HTML
+│   ├── downloads/           # Stores generated PDF CVs
+│   ├── templates/           # Stores JSON data and HTML templates
+│   │   ├── cv_data.json     # The CV content in JSON format
+│   │   ├── cv_template.html # Handlebars-based HTML template for the CV
+│   ├── index.js             # Main entry point for CV generation
+├── .prettierrc              # Prettier configuration for code formatting
+├── eslint.config.mjs        # ESLint configuration for linting
+├── package.json             # Project dependencies and scripts
+├── README.md                # This file
+```
 
 ## Installation
 
-1. Clone the repository to your local machine:
+Ensure you have [Node.js](https://nodejs.org/) installed, then clone the repository and install dependencies:
 
-   ```bash
-   git clone https://github.com/your-username/cv-generator.git
-   cd cv-generator
-   ```
-
-2. Install the required dependencies:
-   ```bash
-   npm install
-   ```
-
-## Setup
-
-1. **Create your personal `cv_data.json` file**:
-
-   - Copy `src/template/cv_data.example.json` to `src/template/cv_data.json`.
-   - Edit `cv_data.json` with your personal information.
-   - Follow the structure outlined in `cv_data.example.json` as a reference.
-
-2. **Ensure `cv_data.json` is ignored by Git**:
-   - The `.gitignore` file already excludes your `cv_data.json` file to prevent accidental commits of personal data.
+```sh
+npm install
+```
 
 ## Usage
 
-1. To generate a PDF version of your CV, run:
+Run the following command to generate a CV:
 
-   ```bash
-   npm start
-   ```
-
-2. The generated PDF will be saved in the `src/downloads` folder with a filename formatted as:
-   ```
-   <First Name> <Last Name> CV <YYYY-MM-DD>.pdf
-   ```
-   If a file with the same name already exists, an incrementing number will be appended (e.g., `CV(1).pdf`, `CV(2).pdf`).
-
-## JSON Data Structure
-
-Your `cv_data.json` file should follow this structure:
-
-```json
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "currentRoleName": "Full-Stack Developer",
-  "emailAddress": "example@example.com",
-  "phoneNumber": "+11234567890",
-  "location": "Location",
-  "summary": "A concise summary about yourself (50 words max).",
-  "education": [
-    {
-      "institutionName": "Example University",
-      "qualification": "Bachelor of Science in Computer Science",
-      "location": "City, Country",
-      "start": "Jan 2015",
-      "end": "Dec 2019"
-    }
-  ],
-  "skills": [
-    {
-      "name": "HTML",
-      "level": 100
-    },
-    {
-      "name": "CSS",
-      "level": 80
-    }
-  ],
-  "languages": [
-    {
-      "name": "English",
-      "level": 100
-    },
-    {
-      "name": "German",
-      "level": 40
-    }
-  ],
-  "experience": [
-    {
-      "roleName": "Senior Developer",
-      "companyName": "Company Name",
-      "start": "2022-01-01",
-      "end": null,
-      "descriptions": [
-        "Short description of responsibilities (15 words max)",
-        "Short description of responsibilities (15 words max)"
-      ],
-      "skills": ["HTML", "CSS", "JavaScript"]
-    }
-  ]
-}
+```sh
+npm start
 ```
 
-### Key Fields
+The generated PDF will be saved in the `downloads/` folder with a filename formatted as:
 
-- `firstName` and `lastName`: Your full name.
-- `currentRoleName`: Your current or most relevant job title.
-- `emailAddress` and `phoneNumber`: Your contact details.
-- `location`: Your general location (optional).
-- `summary`: A brief personal summary.
-- `education`: List of your educational qualifications.
-- `skills`: A list of your key skills with proficiency levels.
-- `languages`: Languages you speak and their proficiency levels.
-- `experience`: Your work experience, including roles, companies, and responsibilities.
+```
+[FirstName] [LastName] CV [YYYY-MM-DD].pdf
+```
 
-## Customization
+### Customizing the CV
 
-### Editing the Template
+#### Editing CV Data
 
-The `cv_template.html` file defines the structure and layout of your CV. You can modify it to customize the design according to your preferences. The template uses Handlebars syntax to dynamically insert data from `cv_data.json`.
+The CV content is stored in `src/templates/cv_data.json`. Modify this file to update the CV details, such as personal information, skills, education, and work experience.
 
-### Changing Fonts and Styling
+#### Customizing the Template
 
-The CSS file embedded in `cv_template.html` controls the styling of your CV. You can modify colors, fonts, and layouts as needed.
+The HTML template (`src/templates/cv_template.html`) uses Handlebars syntax for dynamic content rendering. You can modify this file to change the layout or structure of the CV.
 
-### Adding Profile Picture
+#### Changing the Theme
 
-To include a profile picture:
+The CV supports multiple themes, including:
 
-1. Place your image inside the `src/assets/images` folder.
-2. Reference the image path in `cv_data.json` under a new `profilePicture` field, e.g., `"profilePicture": "../assets/images/profile.jpg"`.
-3. Modify the `cv_template.html` to display the profile image dynamically.
+- Bluewave (default)
+- Crimson
+- Gold
+- Verdant
+- Eclipse
+
+You can specify the theme when running the script or modify the `theme` variable inside the `<script>` block in `cv_template.html`.
+
+```
+const theme = "bluewave";
+```
+
+#### Embedding Assets
+
+Fonts, images, and icons are embedded as Base64 to ensure proper rendering in PDFs. The `embedAssets.js` module handles this automatically.
+
+## Code Style & Linting
+
+This project uses ESLint and Prettier for code consistency. Run the following commands for formatting and linting:
+
+```sh
+npm run format   # Auto-format code
+npm run lint     # Check for linting issues
+npm run lint:fix # Fix linting issues
+```
+
+## Dependencies
+
+- [Handlebars](https://handlebarsjs.com/) - HTML templating engine
+- [Puppeteer](https://pptr.dev/) - Headless browser for PDF generation
+- [Prettier](https://prettier.io/) - Code formatting
+- [ESLint](https://eslint.org/) - JavaScript linting
+- [Commander](https://github.com/tj/commander.js/) - CLI argument parsing
+
+## Contributing
+
+Feel free to fork the repository and submit pull requests with improvements or new features.
+
+## License
+
+This project is licensed under the ISC License.

@@ -28,11 +28,9 @@ async function replaceAssetUrls(htmlContent, regex) {
     const assetPath = path.resolve('./src/assets', url);
     const fileBuffer = fs.readFileSync(assetPath);
 
-    // Get the file extension
     const extname = path.extname(assetPath).toLowerCase();
     let mimeType = '';
 
-    // Dynamically determine the MIME type based on file extension
     switch (extname) {
       case '.woff2':
         mimeType = 'application/font-woff2';
@@ -47,13 +45,11 @@ async function replaceAssetUrls(htmlContent, regex) {
         mimeType = 'application/font-opentype';
         break;
       default:
-        mimeType = 'application/octet-stream'; // Fallback to binary
+        mimeType = 'application/octet-stream';
     }
 
-    // Convert the file buffer to base64
     const base64Encoded = fileBuffer.toString('base64');
 
-    // Return the modified URL with the correct data URI format
     return `url('data:${mimeType};base64,${base64Encoded}')`;
   });
 }
@@ -71,9 +67,8 @@ async function replaceImageTags(htmlContent) {
     const imagePath = path.resolve('./src/assets', url);
     const fileBuffer = fs.readFileSync(imagePath);
 
-    // Get file extension to determine MIME type
     const extname = path.extname(imagePath).toLowerCase();
-    let mimeType = 'image/png'; // Default to PNG
+    let mimeType = 'image/png';
 
     switch (extname) {
       case '.jpg':
@@ -89,12 +84,10 @@ async function replaceImageTags(htmlContent) {
       case '.webp':
         mimeType = 'image/webp';
         break;
-      // Add more image types if needed
       default:
-        mimeType = 'image/png'; // Fallback MIME type
+        mimeType = 'image/png';
     }
 
-    // Convert file to base64 and replace in HTML
     const base64Encoded = fileBuffer.toString('base64');
     return `<img src="data:${mimeType};base64,${base64Encoded}"`;
   });

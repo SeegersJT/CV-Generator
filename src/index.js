@@ -4,6 +4,9 @@ import { generatePdf } from './components/generatePdf.js';
 import { parseCVData } from './components/parseCVData.js';
 import { parseHtml } from './components/parseHtml.js';
 
+const cvDataPath = './src/templates/cv_data.json';
+const cvTemplatePath = './src/templates/cv_template.html';
+
 async function generateCV(cvDataFile, templateFile) {
   try {
     const cvData = await parseCVData(cvDataFile);
@@ -21,4 +24,4 @@ async function generateCV(cvDataFile, templateFile) {
   }
 }
 
-generateCV('./src/templates/cv_data.json', './src/templates/cv_template.html');
+generateCV(cvDataPath, cvTemplatePath);
