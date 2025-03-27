@@ -45,7 +45,11 @@
         "Short description of responsibilities (15 words max)",
         "Short description of responsibilities (15 words max)"
       ],
-      "skills": ["HTML", "CSS", "JavaScript"]
+      "skills": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
     }
   ]
 }
