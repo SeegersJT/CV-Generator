@@ -8,6 +8,12 @@ import path from 'path';
  */
 export async function checkAndCreateFile(fileName) {
   const dirPath = './src/downloads/';
+
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+    console.log('Downloads folder created at:', dirPath);
+  }
+
   let filePath = path.join(dirPath, fileName);
 
   let fileIndex = 1;

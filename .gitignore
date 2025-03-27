@@ -2,7 +2,7 @@
 src/assets/images/*
 
 # Ignore all files inside the /src/downloads/ folder
-src/downloads/*
+src/downloads/
 
 # Ignore all files inside the /src/templates/ folder
 src/templates/*
