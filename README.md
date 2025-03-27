@@ -48,6 +48,8 @@ npm install
 
 ## Usage
 
+Copy the `cv_data.example.json` or rename the file to `cv_data.json` and edit the json to your liking.
+
 Run the following command to generate a CV:
 
 ```sh

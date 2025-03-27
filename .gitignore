@@ -1,14 +1,18 @@
-# Ignore the downloads folder
-downloads/
-
-# Ignore the cv_data.json file
-src/templates/cv_data.json
-
-# Ignore all images inside the /src/media/images/ folder
+# Ignore all images inside the /src/assets/images/ folder
 src/assets/images/*
+
+# Ignore all files inside the /src/downloads/ folder
+src/downloads/*
+
+# Ignore all files inside the /src/templates/ folder
+src/templates/*
 
 # But don't ignore profile-1.jpg
 !src/assets/images/profile-1.jpg
+
+# But don't ignore cv_template.html and cv_data.example.json
+!src/templates/cv_template.html
+!src/templates/cv_data.example.json
 
 # Node modules
 node_modules/
