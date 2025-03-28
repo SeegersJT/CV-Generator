@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { JSONC } from './jsonc';
 
 /**
  * Parses the CV data from the given JSON file.
@@ -10,10 +11,7 @@ export async function parseCVData(filePath) {
     fs.readFile(filePath, 'utf-8', (err, data) => {
       if (err) reject('Error reading CV data file.');
 
-      // remove comments
-      data = data.split(/[\r\n]+/g).filter(line => !line.match(/\s+\/\//)).join('\n');
-
-      resolve(JSON.parse(data));
+      resolve(JSONC.parse(data));
     });
   });
 }
