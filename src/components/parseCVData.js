@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { JSONC } from './jsonc';
+import { JSONC } from './jsonc.js';
 
 /**
  * Parses the CV data from the given JSON file.
