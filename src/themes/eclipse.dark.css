@@ -1,0 +1,14 @@
+/* Eclipse Dark		- https://coolors.co/0a0212-d7d7d7-d7d7d7-8a2be2-1b1820 */
+
+:root {
+  --theme-color-white: #0a0212;
+  --theme-color-light: #d7d7d7;
+  --theme-color-dark: #d7d7d7;
+  --theme-color-primary: #8A2BE2;
+  --theme-color-accent: #1b1820;
+
+  --theme-roundness: 2px;
+
+  --theme-font-headers: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --theme-font-body: 'Lucida Console', monospace;
+}

@@ -9,6 +9,10 @@ export async function parseCVData(filePath) {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf-8', (err, data) => {
       if (err) reject('Error reading CV data file.');
+
+      // remove comments
+      data = data.split(/[\r\n]+/g).filter(line => !line.match(/\s+\/\//)).join('\n');
+
       resolve(JSON.parse(data));
     });
   });

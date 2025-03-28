@@ -4,13 +4,15 @@ import { generatePdf } from './components/generatePdf.js';
 import { parseCVData } from './components/parseCVData.js';
 import { parseHtml } from './components/parseHtml.js';
 
-const cvDataPath = './src/templates/cv_data.json';
+const cvDataPath = './src/templates/cv_data.jsonc';
 const cvTemplatePath = './src/templates/cv_template.html';
 
 async function generateCV(cvDataFile, templateFile) {
   try {
+    const theme = process.argv[2];
+
     const cvData = await parseCVData(cvDataFile);
-    let htmlContent = await parseHtml(templateFile, cvData);
+    let htmlContent = await parseHtml(templateFile, cvData, theme);
     htmlContent = await embedAssets(htmlContent);
 
     const { firstName, lastName } = cvData;

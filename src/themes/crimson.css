@@ -1,0 +1,9 @@
+/* Crimson  	- https://coolors.co/ffffff-d7d7d7-1e1e1e-e44d4d-292b2c */
+
+:root {
+  --theme-color-white: #ffffff;
+  --theme-color-light: #d7d7d7;
+  --theme-color-dark: #1e1e1e;
+  --theme-color-primary: #E44D4D;
+  --theme-color-accent: #292B2C;
+}

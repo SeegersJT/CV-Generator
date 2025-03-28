@@ -25,32 +25,36 @@ export async function embedAssets(htmlContent) {
  */
 async function replaceAssetUrls(htmlContent, regex) {
   return htmlContent.replace(regex, (match, url) => {
-    const assetPath = path.resolve('./src/assets', url);
-    const fileBuffer = fs.readFileSync(assetPath);
-
-    const extname = path.extname(assetPath).toLowerCase();
-    let mimeType = '';
-
-    switch (extname) {
-      case '.woff2':
-        mimeType = 'application/font-woff2';
-        break;
-      case '.woff':
-        mimeType = 'application/font-woff';
-        break;
-      case '.ttf':
-        mimeType = 'application/font-ttf';
-        break;
-      case '.otf':
-        mimeType = 'application/font-opentype';
-        break;
-      default:
-        mimeType = 'application/octet-stream';
+    try {
+      const assetPath = path.resolve('./src/assets', url);
+      const fileBuffer = fs.readFileSync(assetPath);
+  
+      const extname = path.extname(assetPath).toLowerCase();
+      let mimeType = '';
+  
+      switch (extname) {
+        case '.woff2':
+          mimeType = 'application/font-woff2';
+          break;
+        case '.woff':
+          mimeType = 'application/font-woff';
+          break;
+        case '.ttf':
+          mimeType = 'application/font-ttf';
+          break;
+        case '.otf':
+          mimeType = 'application/font-opentype';
+          break;
+        default:
+          mimeType = 'application/octet-stream';
+      }
+  
+      const base64Encoded = fileBuffer.toString('base64');
+  
+      return `url('data:${mimeType};base64,${base64Encoded}')`;
+    } catch(_) {
+      return match;
     }
-
-    const base64Encoded = fileBuffer.toString('base64');
-
-    return `url('data:${mimeType};base64,${base64Encoded}')`;
   });
 }
 
