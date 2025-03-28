@@ -1,0 +1,9 @@
+/* Gold 		- https://coolors.co/ffffff-d7d7d7-1e1e1e-f4b400-454647 */
+
+:root {
+  --theme-color-white: #ffffff;
+  --theme-color-light: #d7d7d7;
+  --theme-color-dark: #1e1e1e;
+  --theme-color-primary: #F4B400;
+  --theme-color-accent: #292B2C;
+}

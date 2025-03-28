@@ -1,4 +1,7 @@
 {
+  // bluewave | crimson | eclipse | gold | verdant
+  "theme": "bluewave",
+
   "firstName": "John",
   "lastName": "Doe",
   "currentRoleName": "Full-Stack Developer",
