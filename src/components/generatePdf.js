@@ -10,6 +10,13 @@ export async function generatePdf(htmlContent, outputPath) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.setContent(htmlContent);
+
+  let full_height = await page.evaluate(() => {return window.innerHeight});
+  full_height = Math.floor(full_height / 297) * 297;
+
+  let sidebar = await page.$('.sidebar-container');
+  await sidebar.evaluate((el, { full_height }) => {el.style.height = full_height + 'mm'}, { full_height });
+
   await page.pdf({ path: outputPath, format: 'A4', printBackground: true });
   await browser.close();
 }
