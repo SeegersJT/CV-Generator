@@ -1,13 +1,13 @@
-/* Bluewave 	- https://coolors.co/ffffff-d7d7d7-1e1e1e-1386c4-292b2c */
+/* Template 	- https://coolors.co/000000-000000-00FF00-00FF00-717171 */
 
 :root {
-  --theme-color-white: #ffffff;
-  --theme-color-light: #d7d7d7;
-  --theme-color-dark: #1e1e1e;
-  --theme-color-primary: #1386C4;
-  --theme-color-accent: #292B2C;
+  --theme-color-white: #000000;
+  --theme-color-light: #000000;
+  --theme-color-dark: #00FF00;
+  --theme-color-primary: #00FF00;
+  --theme-color-accent: #717171;
 
-  --theme-roundness: 5px;
-  --theme-font-headers: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --theme-font-body: 'Lucida Console', monospace;
+  --theme-roundness: 0px;
+  --theme-font-headers: 'Lucida Console';
+  --theme-font-body: 'Lucida Console';
 }
